@@ -1,0 +1,32 @@
+<!-- views/partials/header.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/stylesheet/style.css"> 
+</head>
+
+<body class="">
+    <nav class="w-full fixed flex justify-between px-5 py-3 ">
+        <h3 class="text-xl text-green-900 font-semibold">Eco_Shop.</h3>
+        <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true %>
+        <% if(loggedin){ %>
+            <div class="flex gap-5">
+                <a href="/shop">Shop</a>
+                <a href="/forum">Forum</a>
+                <a href="/cart">Cart</a>
+                <a href="/account">My Account</a>
+                <a href="/users/logout" class="text-sm rounded-lg px-3 py-1 bg-gray-200 transition"
+                >Logout</a
+                >
+        <% } %>
+
+    </nav>
+
+    <script src="/javascripts/hidemess.js"></script>
+

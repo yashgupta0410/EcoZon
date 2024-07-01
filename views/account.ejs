@@ -1,0 +1,39 @@
+<%- include('./partials/header') %>
+<div class="bg-gray-100 min-h-screen px-10 py-20 w-full">
+  <div class="container mx-auto p-8">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h1 class="text-3xl font-semibold text-green-800 mb-6">My Account</h1>
+      <div
+        id="user-info"
+        class="mb-6 flex items-center gap-6 text-lg text-gray-700"
+      >
+        <div class="flex-1">
+          <p><strong>Full Name:</strong> <%= user.fullname %></p>
+          <p><strong>Email:</strong> <%= user.email %></p>
+          <p><strong>Contact:</strong> <%= user.contact %></p>
+        </div>
+        <div class="flex-shrink-0">
+            <% if(user.picture == null) { %>
+              <form action="/users/upload" autocomplete="off" method="post" enctype="multipart/form-data">
+                <input type="file" name="image" />
+                <input
+                  class="text-sm rounded-lg px-2 py-1 bg-gray-200 transition cursor-pointer"
+                  type="submit"
+                  value="Upload File"
+                />
+              </form>
+            <% } else { %>
+              <img
+                src="data:image/jpeg;base64,<%= user.picture.toString('base64') %>"
+                alt="Profile Picture"
+                class="w-24 h-24 rounded-full border-2 border-green-600"
+              />
+            <% } %>
+        </div>
+
+    </div>
+  </div>
+
+</div>
+
+<%- include('./partials/footer') %>

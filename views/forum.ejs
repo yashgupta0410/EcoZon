@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheet/forum.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header py-4 px-6 flex items-center justify-between">
+        <a
+          href="/shop"
+          class="text-sm rounded-lg px-3 py-1 bg-gray-200 transition"
+          >Go back to Shop</a
+        >
+        <div class="text-sm rounded-lg px-3 py-1 bg-gray-200 transition cursor-pointer" id="google_element">Change the Languge</div>
+        </div>
+
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="card bg-gray-50 p-6 shadow">
+          <div class="card-title text-2xl mb-4 text-gray-700">
+            Recent Articles
+          </div>
+          <div id="articleContainer" class="card-content space-y-4">
+          </div>
+        </div>
+
+        <div class="chatbot p-6 shadow">
+            
+            <div class="card-title text-2xl mb-4 text-gray-700 flex justify-between">Chatbot
+            </div>
+            
+            <div
+              class="border p-4 rounded-lg card-content overflow-y-auto"
+              style="max-height: 500px; display: flex; flex-direction: column-reverse;"
+              id="chatContainer"
+            >
+              <div class="space-y-2">
+              </div>
+            </div>
+            <div class="chat-input flex items-center mt-4">
+              <input id="userInput" type="text" placeholder="Enter your message..." />
+              <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+      
+    </div>
+
+    <script src="/javascripts/goals.js"></script>
+    <script src="/javascripts/bot.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+        document.getElementById('google_element').addEventListener("click",function loadGoogleTranslate(){
+            new google.translate.TranslateElement("google_element");
+        })
+ 
+    </script>
+      
+  </body>
+</html>

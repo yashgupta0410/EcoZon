@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment History</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+  <div id="payment-history">
+    <h1>Payment History</h1>
+    <ul id="history-list"></ul>
+  </div>
+
+  <script>
+    async function fetchPaymentHistory(userId) {
+      const response = await fetch(`/payment-history/${userId}`);
+      const paymentHistory = await response.json();
+      const historyList = document.getElementById('history-list');
+
+      paymentHistory.forEach(payment => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `Order ID: ${payment.order._id}, Amount: ₹${payment.amount}, Date: ${new Date(payment.paymentDate).toLocaleDateString()}, Status: ${payment.paymentStatus}`;
+        historyList.appendChild(listItem);
+      });
+    }
+
+    // Replace 'userId' with the actual user ID
+    fetchPaymentHistory('userId');
+  </script>
+</body>
+</html>
